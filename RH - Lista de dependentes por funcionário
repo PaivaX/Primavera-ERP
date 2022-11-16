@@ -1,0 +1,4 @@
+select F.nome, A.Nome, cast(A.DataNasc As date) As 'Data Nascimento' 
+from Funcionarios F
+join FuncAgregadoFamiliar A ON F.codigo = A.Funcionario
+where A.TipoAfinidade=0 OR A.TipoAfinidade=1 AND (F.DataFimContrato IS NULL OR F.DataFimContrato>=GETDATE())
